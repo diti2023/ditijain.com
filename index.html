@@ -1,47 +1,35 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
   <title>Diti Jain</title>
-
-  <meta
-    name="description"
-    content="Diti Jain — first-year PhD student at UCLA studying labor and public economics."
-  />
-
+  <meta name="description" content="Diti Jain — first year PhD student at UCLA studying labor and public economics." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%233D7CC9'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Georgia,serif' font-size='14' font-style='italic' fill='white'>DJ</text></svg>" />
 
   <style>
-
-    
-
-    :root {
-      --bg: #fafaf9;
-      --text: #3f4a37;
-      --muted: #7c9151;
-      --line: #e4ebd6;
-      --accent: #96c17c;
-      --accent-hover: #628438;
-
+    :root,
+    [data-theme="light"] {
+      --bg: #F8FAFC;
+      --text: #1E2A35;
+      --accent: #3575B2;
+      --accent-hover: #4D8FC4;
       --serif: "Instrument Serif", serif;
-      --sans: "Source Serif 4", serif;
+      --sans: "DM Sans", sans-serif;
     }
 
-    * {
-      box-sizing: border-box;
+    [data-theme="dark"] {
+      --bg: #1E2A35;
+      --text: #E8F0F7;
+      --accent: #5595CC;
+      --accent-hover: #70A8D8;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -50,218 +38,225 @@
       font-family: var(--sans);
       font-size: 18px;
       line-height: 1.75;
+      font-weight: 300;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
+      transition: background 0.3s ease, color 0.3s ease;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-      transition: color 0.2s ease;
-    }
+    a { color: var(--accent); text-decoration: none; transition: color 0.2s ease; }
+    a:hover { color: var(--accent-hover); }
 
-    a:hover {
-      color: var(--accent);
-    }
-
+    /* ── Topbar ── */
     .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: rgba(250,250,249,0.82);
-      border-bottom: 3px solid rgba(208,213,221,0.65);
+      position: sticky; top: 0; z-index: 20;
+      background: var(--bg);
+      border-bottom: 1.5px solid var(--accent);
+      transition: background 0.3s ease;
     }
 
     .topbar-inner {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 22px 36px;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
+      max-width: 900px; margin: 0 auto;
+      padding: 20px 36px;
+      display: flex; justify-content: flex-end; align-items: center; gap: 28px;
     }
 
-    .nav {
-      display: flex;
-      gap: 34px;
-    }
+    .nav { display: flex; gap: 34px; }
+    .nav a { font-family: var(--serif); font-size: 20px; letter-spacing: -0.01em; color: var(--accent); transition: color 0.25s ease; }
+    .nav a:hover { color: var(--accent-hover); }
 
-    .nav a {
+    .theme-toggle {
+      background: none; border: none; cursor: pointer; padding: 4px;
+      color: var(--accent); display: flex; align-items: center;
+      transition: color 0.2s; flex-shrink: 0;
+    }
+    .theme-toggle:hover { color: var(--accent-hover); }
+    .theme-toggle:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
+    .theme-toggle svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .icon-moon { display: none; }
+    .icon-sun  { display: block; }
+    [data-theme="dark"] .icon-moon { display: block; }
+    [data-theme="dark"] .icon-sun  { display: none; }
+
+    /* ── Page ── */
+    .page { max-width: 900px; margin: 0 auto; padding: 100px 36px 120px; }
+
+    .section-heading {
       font-family: var(--serif);
-      font-size: 22px;
-      letter-spacing: -0.01em;
-      color: var(--muted);
-      transition: color 0.25s ease;
+      font-size: clamp(36px, 5vw, 52px);
+      font-weight: 400; line-height: 1; letter-spacing: -0.03em;
+      color: var(--accent); font-style: italic; margin: 0 0 48px;
+      padding-top: 80px; border-top: 1.5px solid var(--accent);
     }
 
-    .nav a:hover {
-      color: var(--accent);
-    }
+    /* ── Intro ── */
+    .intro { display: grid; grid-template-columns: 300px 1fr; gap: 70px; align-items: start; }
 
-    .page {
-      max-width: 1220px;
-      margin: 0 auto;
-      padding: 110px 36px 100px;
-    }
-
-    .intro {
-      display: grid;
-      grid-template-columns: 340px 1fr;
-      gap: 72px;
-      align-items: start;
-    }
-
-    .portrait {
-      position: relative;
-      width: 260px;
-    }
-
-    .portrait::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 14px;
-    right: -14px;
-    bottom: -14px;
-    background: var(--muted);
-    z-index: 0;
-    }
-
-    .portrait::after {
-      content: "";
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      right: 12px;
-      bottom: 12px;
-      border-right: 1px solid rgba(255,255,255,0.85);
-      border-bottom: 1px solid rgba(255,255,255,0.85);
-      z-index: 2;
-      pointer-events: none;
-    }
-
+    .portrait { position: relative; width: 280px; }
+    
     .portrait img {
-      position: relative;
-      z-index: 1;
+      display: block;
       width: 100%;
       height: auto;
+      outline: 1.5px solid var(--accent);
+      outline-offset: 10px;
+      box-shadow: inset 4px 4px 4px 4px white;
+    }
+
+    .portrait-contact {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 14px;
+      font-family: var(--sans);
+      font-size: 18px;
+      font-weight: 300;
+      letter-spacing: 0.01em;
+    }
+
+    .portrait-contact a { color: var(--accent); transition: color 0.2s; }
+    .portrait-contact a:hover { color: var(--accent-hover); }
+
+    .portrait-cv svg {
+      width: 15px; height: 15px;
+      stroke: currentColor; fill: none;
+      stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;
       display: block;
     }
 
-    
-    .intro-text {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      gap: 34px;
-    }
+    .intro-text { display: flex; flex-direction: column; justify-content: flex-start; gap: 34px; }
 
     .name {
-      margin: 0;
-      font-family: var(--serif);
-      font-size: clamp(62px, 8vw, 92px);
-      font-weight: 400;
-      line-height: 0.92;
-      letter-spacing: -0.04em;
-
-      display: flex;
-      gap: 20px;
-      align-items: baseline;
+      margin: 0; font-family: var(--serif);
+      font-size: clamp(62px, 8vw, 92px); font-weight: 400;
+      line-height: 0.92; letter-spacing: -0.04em;
+      display: flex; gap: 20px; align-items: baseline;
     }
-
-    .name-black {
-      color: var(--text);
-    }
-
-    .name-blue {
-      color: var(--muted);
-      font-style: italic;
-    }
+    .name-black { color: var(--text); }
+    .name-blue  { color: var(--accent); font-style: italic; }
 
     .blurb {
-      border-top: 1.5px solid var(--muted);
-      border-bottom: 1.5px solid var(--muted);
-      padding: 34px 0;
-      max-width: 650px;
+      border-top: 1.5px solid var(--accent);
+      border-bottom: 1.5px solid var(--accent);
+      padding: 34px 0; max-width: 650px;
+    }
+    .blurb p { margin: 0; }
+    .blurb p + p { margin-top: 24px; }
+
+
+
+    /* ── Research ── */
+    .paper { border-top: 1px solid var(--accent); padding: 32px 0; }
+    .paper:last-child { border-bottom: 1px solid var(--accent); }
+    .paper-status { font-size: 11px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin: 0 0 8px; }
+    .paper-title { font-family: var(--serif); font-size: 22px; font-style: italic; color: var(--text); margin: 0 0 6px; line-height: 1.3; }
+    .paper-authors { font-size: 15px; font-weight: 300; color: var(--text); opacity: 0.65; margin: 0 0 14px; }
+    .paper-abstract { font-size: 15px; font-weight: 300; line-height: 1.75; color: var(--text); opacity: 0.85; max-width: 720px; margin-bottom: 16px; display: none; }
+    .paper-abstract.open { display: block; }
+    .paper-actions { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+    .paper-link { font-size: 14px; font-weight: 400; letter-spacing: 0.04em; color: var(--accent); }
+    .abstract-toggle { background: none; border: none; padding: 0; cursor: pointer; font-family: var(--sans); font-size: 14px; font-weight: 300; letter-spacing: 0.04em; color: var(--text); opacity: 0.5; transition: opacity 0.2s; }
+    .abstract-toggle:hover { opacity: 1; }
+
+    /* ── Other: asymmetric 65/35 typed feed ── */
+    .year-block { margin-bottom: 96px; }
+
+    .year-stamp {
+      display: block;
+      font-family: var(--serif);
+      font-size: clamp(64px, 10vw, 110px);
+      font-weight: 400; line-height: 0.85; letter-spacing: -0.05em;
+      color: var(--accent); opacity: 0.15;
+      user-select: none; pointer-events: none;
+      margin: 0 0 -8px;
     }
 
-    .blurb p {
-      margin: 0;
-      color: var(--text);
+    /* 65/35 grid — left: photos & media, right: books & playlists */
+    .feed {
+      display: grid;
+      grid-template-columns: 65fr 35fr;
+      gap: 0 44px;
+      align-items: start;
     }
 
-    .blurb p + p {
-      margin-top: 24px;
+    .feed-left  { display: flex; flex-direction: column; gap: 14px; }
+    .feed-right { display: flex; flex-direction: column; gap: 0; padding-top: 6px; }
+
+    /* photo */
+    .feed-photo { width: 100%; display: block; object-fit: cover; }
+
+    .feed-placeholder {
+      width: 100%;
+      background: rgba(61,124,201,0.06);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; letter-spacing: 0.07em;
+      color: var(--accent); opacity: 0.4;
     }
 
-    .email-link {
-      color: var(--muted);
+    .h-short  { height: 220px; }
+    .h-medium { height: 340px; }
+    .h-tall   { height: 460px; }
+
+    /* book */
+    .feed-book { padding: 15px 0 13px; border-top: 1px solid var(--accent); }
+    .feed-book:first-child { border-top: none; padding-top: 0; }
+
+    .feed-title {
+      font-family: var(--serif); font-size: 17px; font-style: italic;
+      color: var(--text); line-height: 1.25; margin: 0 0 3px;
     }
 
-    .blurb a {
-      color: var(--muted);
-      transition: color 0.2s ease;
+    .feed-author {
+      font-size: 12px; font-weight: 300;
+      color: var(--text); opacity: 0.42;
+      margin: 0; letter-spacing: 0.02em;
     }
 
-    .blurb a:hover {
-      color: var(--accent);
+    /* playlist — ready for when you add one */
+    .feed-playlist { padding: 15px 0 13px; border-top: 1px solid var(--accent); }
+
+    .feed-playlist-label {
+      font-size: 10px; font-weight: 400; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--accent); margin: 0 0 4px;
     }
 
+    .feed-playlist-title {
+      font-family: var(--serif); font-size: 16px;
+      color: var(--text); margin: 0 0 3px; line-height: 1.2;
+    }
+
+    .feed-playlist-sub {
+      font-size: 12px; font-weight: 300;
+      color: var(--accent); opacity: 0.7; margin: 0;
+    }
+    .feed-playlist-sub:hover { opacity: 1; color: var(--accent-hover); }
+
+    /* ── Mobile ── */
     @media (max-width: 860px) {
-      .intro {
-        grid-template-columns: 1fr;
-        gap: 56px;
-      }
-
-      .portrait {
-        max-width: 400px;
-      }
-
-      .name {
-        font-size: clamp(54px, 15vw, 72px);
-      }
-
+      .intro { grid-template-columns: 1fr; gap: 28px; }
+      .intro-text { order: 0; gap: 0; }
+      .name { font-size: clamp(54px, 15vw, 72px); margin-bottom: 0; justify-content: center; }
+      .portrait { order: 1; width: 60vw; max-width: 280px; margin: 0 auto; }
+      .blurb { margin-top: 40px; }
+      .feed { grid-template-columns: 1fr; gap: 0; }
+      .feed-right { padding-top: 0; margin-top: 14px; }
     }
 
     @media (max-width: 640px) {
+      body { font-size: 17px; }
+      .topbar-inner { justify-content: flex-end; }
+      .nav { gap: 18px; }
+      .nav a { font-size: 18px; }
+      .page { padding-top: 72px; }
 
-      body {
-        font-size: 17px;
-      }
-
-      .topbar-inner {
-        justify-content: flex-start;
-      }
-
-      .nav {
-        gap: 18px;
-      }
-
-      .nav a {
-        font-size: 18px;
-      }
-
-      .page {
-        padding-top: 72px;
-      }
-
-      .portrait {
-        max-width: 300px;
-      }
-
-      .portrait::before {
-        top: 12px;
-        left: 12px;
-        right: -12px;
-        bottom: -12px;
-      }
-
-      .blurb {
-        padding: 26px 0;
-      }
-
+      .blurb { padding: 26px 0; }
+      .section-heading { padding-top: 60px; margin-bottom: 36px; }
+      .year-stamp { font-size: 64px; }
     }
-
   </style>
 </head>
 
@@ -269,59 +264,176 @@
 
   <header class="topbar">
     <div class="topbar-inner">
-
-      
-
       <nav class="nav">
         <a href="#about">About</a>
-        <a href="#research">Research</a>
-        <a href="#other">Other</a>
       </nav>
-
+      <button class="theme-toggle" onclick="toggleTheme()" id="theme-btn" aria-label="Switch to dark mode" title="Switch to dark mode">
+        <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun"  viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
     </div>
   </header>
 
   <main class="page">
 
+    <!-- About -->
     <section class="intro" id="about">
-
       <figure class="portrait">
         <img src="portrait.jpg" alt="Portrait of Diti Jain" />
+        <figcaption class="portrait-contact">
+          <a href="mailto:ditijain@ucla.edu">ditijain@ucla.edu</a>
+          <a href="cv.pdf" target="_blank" aria-label="Download CV" class="portrait-cv">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </a>
+        </figcaption>
       </figure>
-
       <div class="intro-text">
-
         <h1 class="name">
           <span class="name-black">Diti</span>
           <span class="name-blue">Jain</span>
         </h1>
-
         <div class="blurb">
+          <p>Hi! I'm a first year PhD student at UCLA with research interests in labor and public economics, particularly in early life policies, education, and inequality.</p>
+          <p>Before this, I was at UBC working on projects related to crime with <a href="https://www.samuel-norris.com" target="_blank">Sam Norris</a>, 
+            industrial policy with <a href="https://www.rjuhasz.com" target="_blank">Reka Juhasz</a>, 
+            and apprenticeships with <a href="https://sites.google.com/site/jamiemccasland" target="_blank">Jamie McCasland.</a></p> 
+          <p>I hold a B.A. in Economics from McGill University.</p>
+        </div>
+      </div>
+    </section>
 
-          <p>
-            Hi! I'm a first year PhD student at UCLA with research interests in labor and public economics,
-            particularly in early-life policies, education, and inequality.
-          </p>
+    <!-- Research -->
+    <section id="research" style="display:none">
+      <h2 class="section-heading">Research</h2>
+    </section>
 
-          <p>
-            Before this, I was at UBC working on projects related to crime with <a href="https://www.samuel-norris.com" target="_blank">Sam Norris</a>,
-            industrial policy with <a href="https://www.rjuhasz.com" target="_blank">Reka Juhasz</a>, and apprenticeships with <a href="https://sites.google.com/site/jamiemccasland/research?authuser=0" target="_blank">Jamie McCasland</a>.
-            I hold a B.A. in Economics from McGill University.
-          </p>
+    <!-- Other -->
+    <section id="other" style="display:none">
+      <h2 class="section-heading"><em>Other</em></h2>
 
-          <p>
-            You can reach me at
-            <a class="email-link" href="mailto:ditijain@ucla.edu">ditijain@ucla.edu</a>.
-            I'm always happy to chat over coffee!
-          </p>
+      <!-- 2025 -->
+      <div class="year-block">
+        <span class="year-stamp">2025</span>
+        <div class="feed">
+
+          <div class="feed-left">
+            <div class="feed-placeholder h-tall">[ photo ]</div>
+            <div class="feed-placeholder h-short">[ photo ]</div>
+          </div>
+
+          <div class="feed-right">
+            <div class="feed-book">
+              <p class="feed-title">Strangers Drowning</p>
+              <p class="feed-author">Larissa MacFarquhar</p>
+            </div>
+            <div class="feed-book">
+              <p class="feed-title">The Dispossessed</p>
+              <p class="feed-author">Ursula K. Le Guin</p>
+            </div>
+            <div class="feed-book">
+              <p class="feed-title">Ways of Seeing</p>
+              <p class="feed-author">John Berger</p>
+            </div>
+            <div class="feed-book">
+              <p class="feed-title">Small Things Like These</p>
+              <p class="feed-author">Claire Keegan</p>
+            </div>
+            <div class="feed-book">
+              <p class="feed-title">Thinking, Fast and Slow</p>
+              <p class="feed-author">Daniel Kahneman</p>
+            </div>
+            <!-- playlist placeholder — uncomment and fill when ready
+            <div class="feed-playlist">
+              <p class="feed-playlist-label">Playlist</p>
+              <p class="feed-playlist-title">Writing music, spring 2025</p>
+              <a class="feed-playlist-sub" href="#">Open in Spotify →</a>
+            </div>
+            -->
+          </div>
 
         </div>
+      </div>
 
+      <!-- 2024 -->
+      <div class="year-block">
+        <span class="year-stamp">2024</span>
+        <div class="feed">
+
+          <div class="feed-left">
+            <div class="feed-placeholder h-medium">[ photo ]</div>
+            <div class="feed-placeholder h-medium">[ photo ]</div>
+          </div>
+
+          <div class="feed-right">
+            <div class="feed-book">
+              <p class="feed-title">Poverty, by America</p>
+              <p class="feed-author">Matthew Desmond</p>
+            </div>
+            <div class="feed-book">
+              <p class="feed-title">A Fine Balance</p>
+              <p class="feed-author">Rohinton Mistry</p>
+            </div>
+            <div class="feed-book">
+              <p class="feed-title">The Ministry for the Future</p>
+              <p class="feed-author">Kim Stanley Robinson</p>
+            </div>
+            <div class="feed-book">
+              <p class="feed-title">Pachinko</p>
+              <p class="feed-author">Min Jin Lee</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 2023 -->
+      <div class="year-block">
+        <span class="year-stamp">2023</span>
+        <div class="feed">
+
+          <div class="feed-left">
+            <div class="feed-placeholder h-short">[ photo ]</div>
+            <div class="feed-placeholder h-tall">[ photo ]</div>
+          </div>
+
+          <div class="feed-right">
+            <div class="feed-book">
+              <p class="feed-title">The Buried Giant</p>
+              <p class="feed-author">Kazuo Ishiguro</p>
+            </div>
+            <div class="feed-book">
+              <p class="feed-title">Invisible Cities</p>
+              <p class="feed-author">Italo Calvino</p>
+            </div>
+            <div class="feed-book">
+              <p class="feed-title">Salt, Fat, Acid, Heat</p>
+              <p class="feed-author">Samin Nosrat</p>
+            </div>
+          </div>
+
+        </div>
       </div>
 
     </section>
 
   </main>
+
+  <script>
+    function toggleTheme() {
+      var html = document.documentElement;
+      var isDark = html.getAttribute('data-theme') === 'dark';
+      html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+      var btn = document.getElementById('theme-btn');
+      var label = isDark ? 'Switch to dark mode' : 'Switch to light mode';
+      btn.setAttribute('aria-label', label);
+      btn.setAttribute('title', label);
+    }
+    function toggleAbstract(id, btn) {
+      var el = document.getElementById(id);
+      var open = el.classList.toggle('open');
+      btn.textContent = open ? 'Abstract ↑' : 'Abstract ↓';
+    }
+  </script>
 
 </body>
 </html>
