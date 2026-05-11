@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Diti Jain</title>
+
+  <meta
+    name="description"
+    content="Diti Jain — first-year PhD student at UCLA studying labor and public economics."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+
+    
+
+    :root {
+      --bg: #fafaf9;
+      --text: #606a7b;
+      --muted: #6d8fc7;
+      --line: #d6deeb;
+      --accent: #5787ff;
+      --accent-hover: #384f84;
+
+      --serif: "Instrument Serif", serif;
+      --sans: "Source Serif 4", serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 18px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: var(--accent);
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(250,250,249,0.82);
+      border-bottom: 3px solid rgba(208,213,221,0.65);
+    }
+
+    .topbar-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 22px 36px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .nav {
+      display: flex;
+      gap: 34px;
+    }
+
+    .nav a {
+      font-family: var(--serif);
+      font-size: 22px;
+      letter-spacing: -0.01em;
+      color: var(--muted);
+      transition: color 0.25s ease;
+    }
+
+    .nav a:hover {
+      color: var(--accent);
+    }
+
+    .page {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 110px 36px 100px;
+    }
+
+    .intro {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 72px;
+      align-items: start;
+    }
+
+    .portrait {
+      position: relative;
+      width: 260px;
+    }
+
+    .portrait::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 14px;
+    right: -14px;
+    bottom: -14px;
+    background: var(--muted);
+    z-index: 0;
+    }
+
+    .portrait::after {
+      content: "";
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+      border-right: 1px solid rgba(255,255,255,0.85);
+      border-bottom: 1px solid rgba(255,255,255,0.85);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .portrait img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    
+    .intro-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 34px;
+    }
+
+    .name {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(62px, 8vw, 92px);
+      font-weight: 400;
+      line-height: 0.92;
+      letter-spacing: -0.04em;
+
+      display: flex;
+      gap: 20px;
+      align-items: baseline;
+    }
+
+    .name-black {
+      color: var(--text);
+    }
+
+    .name-blue {
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .blurb {
+      border-top: 1.5px solid var(--muted);
+      border-bottom: 1.5px solid var(--muted);
+      padding: 34px 0;
+      max-width: 650px;
+    }
+
+    .blurb p {
+      margin: 0;
+      color: var(--text);
+    }
+
+    .blurb p + p {
+      margin-top: 24px;
+    }
+
+    .email-link {
+      color: var(--muted);
+    }
+
+    .blurb a {
+      color: var(--muted);
+      transition: color 0.2s ease;
+    }
+
+    .blurb a:hover {
+      color: var(--accent);
+    }
+
+    @media (max-width: 860px) {
+      .intro {
+        grid-template-columns: 1fr;
+        gap: 56px;
+      }
+
+      .portrait {
+        max-width: 400px;
+      }
+
+      .name {
+        font-size: clamp(54px, 15vw, 72px);
+      }
+
+    }
+
+    @media (max-width: 640px) {
+
+      body {
+        font-size: 17px;
+      }
+
+      .topbar-inner {
+        justify-content: flex-start;
+      }
+
+      .nav {
+        gap: 18px;
+      }
+
+      .nav a {
+        font-size: 18px;
+      }
+
+      .page {
+        padding-top: 72px;
+      }
+
+      .portrait {
+        max-width: 300px;
+      }
+
+      .portrait::before {
+        top: 12px;
+        left: 12px;
+        right: -12px;
+        bottom: -12px;
+      }
+
+      .blurb {
+        padding: 26px 0;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+
+      
+
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#other">Other</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="page">
+
+    <section class="intro" id="about">
+
+      <figure class="portrait">
+        <img src="portrait.jpg" alt="Portrait of Diti Jain" />
+      </figure>
+
+      <div class="intro-text">
+
+        <h1 class="name">
+          <span class="name-black">Diti</span>
+          <span class="name-blue">Jain</span>
+        </h1>
+
+        <div class="blurb">
+
+          <p>
+            Hi! I'm a first year PhD student at UCLA with research interests in labor and public economics,
+            particularly in early-life policies, education, and inequality.
+          </p>
+
+          <p>
+            Before this, I was at UBC working on projects related to crime with <a href="https://www.samuel-norris.com" target="_blank">Sam Norris</a>,
+            industrial policy with <a href="https://www.rjuhasz.com" target="_blank">Reka Juhasz</a>, and apprenticeships with <a href="https://sites.google.com/site/jamiemccasland/research?authuser=0" target="_blank">Jamie McCasland</a>.
+            I hold a B.A. in Economics from McGill University.
+          </p>
+
+          <p>
+            You can reach me at
+            <a class="email-link" href="mailto:ditijain@ucla.edu">ditijain@ucla.edu</a>.
+            I'm always happy to chat over coffee!
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+</body>
+</html>
