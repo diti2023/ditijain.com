@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Diti Jain</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="subpage">
+  <main class="site">
+    <header class="subpage-header">
+      <a class="subpage-home" href="index.html">Home</a>
+      <button
+        class="theme-toggle"
+        onclick="toggleTheme()"
+        id="theme-btn"
+        aria-label="Switch to dark mode"
+        title="Switch to dark mode"
+      >
+        <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+    </header>
+
+    <section class="coffee-page">
+      <header class="coffee-heading">
+        <h1 class="coffee-intro">
+          <span>some cafes</span>
+          <span class="coffee-intro-shift">& bakeries</span>
+          <span>i've enjoyed.</span>
+        </h1>
+      </header>
+
+      <div class="coffee-listing">
+        <div class="coffee-grid">
+          <section class="city-entry" id="los-angeles">
+            <h2 class="city-name">Los Angeles</h2>
+            <div class="city-detail">
+              <div class="place-group">
+                <ul class="place-list">
+                  <li>Maru</li>
+                  <li>Menotti's</li>
+                  <li>Cognoscenti</li>
+                  <li>Little Marionette</li>
+                  <li>Demitasse</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section class="city-entry" id="vancouver">
+            <h2 class="city-name">Vancouver</h2>
+            <div class="city-detail">
+              <div class="place-group">
+                <ul class="place-list">
+                  <li>Revolver</li>
+                  <li>Prototype</li>
+                  <li>Oide</li>
+                  <li>Pallet</li>
+                  <li class="bakery-item">Casa de Nata</li>
+                  <li class="bakery-item">Grounds for Coffee</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section class="city-entry" id="seattle">
+            <h2 class="city-name">Seattle</h2>
+            <div class="city-detail">
+              <div class="place-group">
+                <ul class="place-list">
+                  <li>Zoka</li>
+                  <li>Milstead</li>
+                  <li>URL</li>
+                  <li>Olympia</li>
+                  <li>Issaquah Coffee Company</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section class="city-entry" id="montreal">
+            <h2 class="city-name">Montreal</h2>
+            <div class="city-detail">
+              <div class="place-group">
+                <ul class="place-list">
+                  <li>Pikolo</li>
+                  <li class="bakery-item">Guillaume</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section class="city-entry" id="san-francisco">
+            <h2 class="city-name">San Francisco</h2>
+            <div class="city-detail">
+              <div class="place-group">
+                <ul class="place-list">
+                  <li>Four Barrel</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section class="city-entry" id="tokyo">
+            <h2 class="city-name">Tokyo</h2>
+            <div class="city-detail">
+              <div class="place-group">
+                <ul class="place-list">
+                  <li>Ogawa Coffee Lab</li>
+                  <li>Et - The Cultural Coffeehouse</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function toggleTheme() {
+      var html = document.documentElement;
+      var isDark = html.getAttribute("data-theme") === "dark";
+      html.setAttribute("data-theme", isDark ? "light" : "dark");
+      var btn = document.getElementById("theme-btn");
+      var label = isDark ? "Switch to dark mode" : "Switch to light mode";
+      btn.setAttribute("aria-label", label);
+      btn.setAttribute("title", label);
+    }
+  </script>
+</body>
+</html>
