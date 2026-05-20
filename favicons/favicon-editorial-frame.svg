@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title>Editorial Frame favicon mockup</title>
+  <rect width="64" height="64" rx="16" fill="#fbfdff" />
+  <rect x="7" y="7" width="50" height="50" rx="12" fill="none" stroke="#3878b5" stroke-width="2" />
+  <path d="M16 21H48" stroke="#3878b5" stroke-width="2.4" stroke-linecap="round" />
+  <path d="M16 43H36" stroke="#22303d" stroke-width="2.4" stroke-linecap="round" opacity="0.75" />
+  <path d="M42 42C42 35.9 46.9 31 53 31" stroke="#3878b5" stroke-width="2.8" stroke-linecap="round" fill="none" />
+  <path fill="#22303d" d="M24 25C24.8 31.7 28.3 35.2 35 36C28.3 36.8 24.8 40.3 24 47C23.2 40.3 19.7 36.8 13 36C19.7 35.2 23.2 31.7 24 25Z" />
+</svg>

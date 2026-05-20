@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title>Library DJ favicon mockup</title>
+  <rect width="64" height="64" rx="16" fill="#22303d" />
+  <rect x="7" y="7" width="50" height="50" rx="12" fill="none" stroke="#5f9ed4" stroke-width="1.5" opacity="0.65" />
+  <path fill="#fbfdff" d="M15 13H28.6C38.1 13 43.1 18.9 43.1 32C43.1 45.1 38.1 51 28.6 51H15V13ZM22.3 20.7V43.3H27.8C32.7 43.3 35.7 39.6 35.7 32C35.7 24.4 32.7 20.7 27.8 20.7H22.3Z" />
+  <path fill="#3878b5" d="M15 13H20.4V51H15Z" />
+  <path fill="#fbfdff" d="M48.2 13V39.5C48.2 47.8 43.7 52.5 35.9 52.5C33.9 52.5 32 52.2 30.4 51.5V44.6C31.8 45.2 33.1 45.5 34.4 45.5C38 45.5 40.8 43.4 40.8 39.1V20.2H35.1V13H48.2Z" />
+  <path fill="#5f9ed4" d="M44.6 19.6L48.6 15.6L52.6 19.6L48.6 23.6Z" />
+</svg>

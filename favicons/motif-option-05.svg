@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title>Motif option 05</title>
+  <rect width="64" height="64" rx="16" fill="#fbfdff" />
+  <path d="M12 18H52" stroke="#3878b5" stroke-width="2.2" stroke-linecap="round" />
+  <path d="M12 46H52" stroke="#22303d" stroke-width="2.2" stroke-linecap="round" opacity="0.72" />
+  <path fill="#3878b5" d="M32 21C32.6 26.4 35.6 29.4 41 30C35.6 30.6 32.6 33.6 32 39C31.4 33.6 28.4 30.6 23 30C28.4 29.4 31.4 26.4 32 21Z" />
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title>Archive DJ favicon mockup</title>
+  <rect width="64" height="64" rx="16" fill="#22303d" />
+  <rect x="7" y="7" width="50" height="50" rx="12" fill="none" stroke="#5f9ed4" stroke-width="1.5" opacity="0.65" />
+  <path fill="#fbfdff" d="M17 13H26.5V20.2H24.6V44H31.2V51H17V13Z" />
+  <path fill="#3878b5" d="M17 13H22.1V51H17Z" />
+  <path fill="#fbfdff" d="M33.4 13H47V20.4H40.9V40.8C40.9 47.8 37.4 51.8 30.5 51.8C28.7 51.8 26.9 51.5 25.4 50.9V43.5C26.5 44 27.8 44.3 29.1 44.3C32 44.3 33.4 42.8 33.4 39.6V13Z" />
+  <path fill="#5f9ed4" d="M44.5 19.5L48.5 15.5L52.5 19.5L48.5 23.5Z" />
+</svg>

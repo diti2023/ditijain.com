@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title>Motif Seal favicon mockup</title>
+  <rect width="64" height="64" rx="16" fill="#fbfdff" />
+  <rect x="5.5" y="5.5" width="53" height="53" rx="13" fill="none" stroke="#3878b5" stroke-width="1.5" opacity="0.55" />
+  <circle cx="32" cy="32" r="19" fill="none" stroke="#22303d" stroke-width="2" opacity="0.22" />
+  <path fill="#3878b5" d="M32 15C33.1 24.8 39.2 30.9 49 32C39.2 33.1 33.1 39.2 32 49C30.9 39.2 24.8 33.1 15 32C24.8 30.9 30.9 24.8 32 15Z" />
+  <circle cx="32" cy="10.5" r="1.7" fill="#22303d" />
+  <circle cx="53.5" cy="32" r="1.7" fill="#22303d" />
+  <circle cx="32" cy="53.5" r="1.7" fill="#22303d" />
+  <circle cx="10.5" cy="32" r="1.7" fill="#22303d" />
+</svg>
